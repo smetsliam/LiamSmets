@@ -1,0 +1,83 @@
+---
+import { Image } from 'astro:assets';
+import { Icon } from 'astro-icon/components'
+import resume from '../assets/resume.pdf'
+import {HERO_SECTION} from '../data/constants'
+---
+
+<section
+id="hero"
+class="grid grid-cols-1 lg:grid-cols-2 gap-10 py-8 sm:py-14">
+<div
+	class="flex flex-col lg:justify-center text-center lg:text-left gap-6 md:gap-8 lg:gap-10">
+	<h1 class="font-semibold text-4xl sm:text-5xl md:text-6xl">
+		Hi, I'm 
+		<span class="poppins text-primary">Liam Smets</span> <br /> and I'm a 
+		<span class="poppins text-primary"><span id="words">Developer</span></span>
+	</h1>
+
+	<div class="flex gap-8 items-center justify-center">
+		<a
+			href="mailto:info@liamsmets.be"
+			target="_blank">
+			<button
+				class="buttonShadow lg:mr-auto lg:ml-0 text-base sm:text-lg md:text-xl poppins relative overflow-hidden px-6 py-3 group rounded-full bg-black text-white dark:bg-white dark:text-slate-950">
+				<div
+					class="absolute top-0 right-full w-full h-full bg-primary opacity-20 group-hover:translate-x-full z-0 duration-200" />
+				<h2 class="relative z-9 flex flex-row items-center">
+					E-mail me
+					<span class="hidden md:inline-block">
+						<Icon
+							class="ml-1 text-white dark:text-slate-600"
+							name="eye" />
+					</span>
+				</h2>
+			</button>
+		</a>
+        <a
+        
+			class="buttonShadow lg:mr-auto lg:ml-0 text-base sm:text-lg md:text-xl poppins relative overflow-hidden px-6 py-3 group rounded-full bg-black text-white dark:bg-white dark:text-slate-950"
+			href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7234193095888658436"
+			target="_blank">
+			<div
+				class="absolute top-0 right-full w-full h-full bg-primary opacity-20 group-hover:translate-x-full z-0 duration-200" />
+			<h2 class="relative z-9 flex flex-row items-center">
+				Newsletter Linkedin
+				<span class="hidden md:inline-block">
+                    <Icon
+                        class="ml-1 text-white dark:text-slate-600"
+                        name="envelope" />
+                </span>
+			</h2>
+		</a>
+	</div>
+</div>
+
+<div class="flex p-0.5 relative max-w-[700px] max-h-auto w-full mx-auto">
+	<div
+		class="absolute inset-0 overflow-hidden rounded-md flex items-center justify-center">
+		<div
+			class="bg-gradient-to-r absolute inset-[-20px] from-cyan-400 to-primary specialSpin" />
+	</div>
+
+	<Image
+		loading="eager"
+		fetchpriority="high"
+		src="/images/Liam.png"
+		alt="programming"
+		class="w-full h-full object-cover z-[2] rounded"
+		width="400"
+		height="400"
+		 />
+</div>
+</section>
+<script type="text/javascript">
+    (function () {
+      var words = ["Developer","Photographer","Happy Person" ],
+      i = 0;
+      setInterval(function(){ $('#words').fadeOut(function(){
+          $(this).html(words[(i = (i + 1) % words.length)]).fadeIn();
+        }); }, 3000)
+    })();
+    
+  </script>

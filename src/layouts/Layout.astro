@@ -1,0 +1,188 @@
+---
+import Header from '../components/Header.vue';
+import Footer from '../components/Footer.astro';
+const { title, description, image, frontmatter, robots } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+			<script is:inline>
+				function getInitialTheme() {
+					const savedTheme = localStorage.getItem('theme');
+					if (savedTheme) return savedTheme;
+					
+					return window.matchMedia('(prefers-color-scheme: dark)').matches 
+						? 'dark' 
+						: 'light';
+				}
+				
+				const theme = getInitialTheme();
+				document.documentElement.classList.toggle('dark', theme === 'dark');
+				document.documentElement.setAttribute('data-theme', theme);
+			</script>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Astro description" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+		<meta name="description" content={description}>
+		<meta name="keywords" content="Liam Smets, Photo's, Dev">
+		<meta name="author" content="Liam Smets">
+		<meta property="og:type" content="website">
+		<meta property="og:url" content="https://www.liamsmets.be">
+		<meta property="og:title" content={title}>
+		<meta property="og:image" content="http://www.liamsmets.be/images/Persons/Liam.png">
+		<meta property="og:description" content={description}>
+		<meta property="twitter:card" content="http://www.liamsmets.be/images/Persons/Liam.png">
+		<meta property="twitter:url" content="https://www.liamsmets.be">
+		<meta property="twitter:title" content={title}>
+		<meta property="twitter:description" content={description}>
+		<meta name="robots" content="index, follow">
+		<meta name="googlebot" content="index, follow">
+        <link rel="preconnect" href="https://fonts.googleapis.com" /><link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+      /><link
+        href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet"
+      />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+	<body>
+		<div class="selection:bg-blue-200/60 dark:selection:bg-blue-200/30">
+			<Header client:load initialY={0} />
+			<div
+				class="container relative flex flex-col max-w-[1400px] mx-auto w-full text-sm sm:text-base min-h-screen">
+				<slot />
+			</div>
+			<Footer />
+		</div>
+	</body>
+</html>
+<style is:global>
+	
+	html {
+		font-family: system-ui, sans-serif;
+		scroll-behavior: smooth;
+	}
+
+
+body {
+  @apply bg-slate-50 dark:bg-slate-950 text-black dark:text-gray-50 transition duration-300;
+}
+
+* {
+  font-family: 'Roboto', sans-serif;
+  font-display: swap;
+}
+
+h1,
+h2,
+h3,
+.poppins {
+  font-family: 'Poppins', sans-serif !important;
+  font-display: swap;
+}
+
+.buttonShadow {
+  box-shadow: 0px 14px 55px rgba(3, 123, 252, 0.45);
+}
+
+.specialSpin {
+  animation: spin 5s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.hamburger-top,
+.hamburger-middle,
+.hamburger-bottom {
+  position: absolute;
+  right: 0;
+  width: 24px;
+  height: 2px;
+  background: #037bfc;
+  transform: rotate(0);
+  transition: all 0.5s;
+}
+
+.hamburger-middle {
+  transform: translateY(7px);
+}
+
+.hamburger-bottom {
+  transform: translateY(14px);
+}
+
+.open {
+  transform: rotate(90deg);
+  transform: translateY(0px);
+}
+
+.open .hamburger-top {
+  transform: rotate(45deg) translateY(6px) translate(6px);
+}
+
+.open .hamburger-middle {
+  display: none;
+}
+
+.open .hamburger-bottom {
+  transform: rotate(-45deg) translateY(6px) translate(-6px);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-link {
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeIn 0.2s ease-in-out forwards;
+}
+
+.animate-link:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.animate-link:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.animate-link:nth-child(3) {
+  animation-delay: 0.2s;
+}
+.animate-link:nth-child(4) {
+  animation-delay: 0.3s;
+}
+	code {
+		font-family:
+		Roboto,
+		Poppins,
+		Menlo,
+		Monaco,
+		Lucida Console,
+		Liberation Mono,
+		DejaVu Sans Mono,
+		Bitstream Vera Sans Mono,
+		Courier New,
+		monospace;
+	}
+</style>

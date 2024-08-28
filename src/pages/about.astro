@@ -1,0 +1,30 @@
+---
+// Component imports
+import MainLayout from "../layouts/MainLayout.astro";
+import Link from "../components/Link.astro"
+
+---
+<MainLayout title="About" description="My about page">
+   <section class="container about" aria-label="About me">
+        <img src="/images/Liam.jpg" alt="Liam"
+        width="200"
+        height="330">
+
+        <div class="content">
+            <h1 class="h1">About Liam</h1>
+            <p>
+                Hi, I'm Liam, a 16-year-old developer from Belgium.
+                <br>
+                Liam Smets is a dynamic and talented 16-year-old who excels in both sports and technology. His passion for badminton has driven him to achieve remarkable skills on the court, whether playing casually or competitively. Liam's dedication to the sport is evident in his commitment to training and improving his game.
+                <br><br>
+                In the realm of technology, Liam stands out as a proficient programmer. He is well-versed in both Apple and Windows environments, showcasing his ability to navigate and master different tech platforms with ease. His expertise extends to social media management, where he effectively leverages various platforms to connect and engage with audiences.
+                <br><br>
+                Liam's skills in software development and website creation highlight his innovative mindset and technical prowess. He has a knack for writing clean, efficient code and designing user-friendly websites that cater to diverse needs. His projects reflect a blend of creativity and technical skill, making him a valuable asset in the tech community.
+                <br><br>
+                Overall, Liam's diverse skill set, combined with his enthusiasm and dedication, make him a standout individual. Whether on the badminton court or behind a computer screen, he consistently demonstrates excellence and a drive to succeed.
+              </p>  
+              <h2 class="h1">Contact Details</h2>
+            <Link href="mailto:info@liamsmets.be" style="primary" text="info@liamsmets.be"/> <Link href="tel:+32473234090" style="primary" text="+32 473 23 40 90"/>
+        </div>
+   </section>
+</MainLayout>

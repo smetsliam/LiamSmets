@@ -1,0 +1,33 @@
+{
+  "name": "portfolio-template-astro",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.8.2",
+    "@astrojs/tailwind": "^5.1.0",
+    "@astrojs/vue": "^4.5.0",
+    "astro": "^4.12.2",
+    "astro-icon": "^1.1.0",
+    "body-parser": "^1.20.2",
+    "express": "^4.19.2",
+    "mssql": "^11.0.1",
+    "mysql": "^2.18.1",
+    "tailwindcss": "^3.4.6",
+    "typescript": "^5.5.4"
+  },
+  "devDependencies": {
+    "@types/jquery": "^3.5.30"
+  },
+  "description": "![Landing page](https://res.cloudinary.com/dkofkuquf/image/upload/v1715871041/nuxtshop/dl2mfhs5qc0vw5y3k1wx.png)",
+  "main": "tailwind.config.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

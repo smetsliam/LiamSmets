@@ -1,0 +1,79 @@
+---
+// library imports
+import { Icon } from 'astro-icon/components'
+
+// utils imports
+import { slugify, formatDate } from "../js/utils";
+
+const { frontmatter, url, tagType } = Astro.props;
+
+const Tag = tagType;
+
+const { title, date, author, image, description, category } = frontmatter;
+---
+<div class="shadow-xl transition-all hover:scale-[1.03] hover:shadow-primary">
+    <div class="overlay items-center justify-center absolute top-0 left-0 w-full h-full bg-[#181818] bg-opacity-0 hidden group-hover:flex group-focus:flex group-hover:bg-opacity-80 transition-all duration-500 rounded-t-xl">
+       
+    </div>
+	<div
+		class="h-52 md:h-72 rounded-t-xl relative group project-picture"
+		style={{
+            background: `url(${image.src})`,
+			backgroundSize: 'cover',
+			backgroundPosition: 'center',
+			objectFit: 'cover',
+			objectPosition: 'center',
+		}}> 
+    
+        <div
+        class="overlay items-center justify-center absolute top-0 left-0 w-full h-full bg-[#181818] bg-opacity-0 hidden group-hover:flex group-focus:flex group-hover:bg-opacity-80 transition-all duration-500 rounded-t-xl">
+        
+        <a
+            href={url}
+            class="flex items-center justify-center h-14 w-14 mr-2 border-2 relative rounded-full border-[#ADB7BE] hover:border-white group/link">
+            <Icon
+                name="eye"
+                class="size-10 text-[#ADB7BE] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 cursor-pointer group-hover/link:text-white" />
+        </a>
+        
+    </div>
+</div>
+<div class="rounded-b-xl mt-3 py-6 px-4 text-center">
+    
+        <h5 class="text-3xl font-semibold mb-2"><a href={url}>{title}</a></h5>
+    
+    <small class="text-xl font-semibold mb-1" >
+        <span class="poppins text-primary "><b>Category:</b></span> <a class="underline" href={`/category/${slugify(category)}/`} class="text-decoration: underline;">{category}</a>
+        <br>
+        <span class="poppins text-primary">By:</span> <a class="underline" href={`/author/${slugify(author)}/`}>{author}</a> • {
+            formatDate(date)
+          }
+    </small>
+    <br>
+    <br>
+    <hr>
+    <br>
+    <h5 class="text-3xl font-semibold mb-2 text-center">Description</h5>
+    <p class="dark:text-[#ADB7BE] text-slate-800">
+        { description }
+    </p>
+    <br>
+    <br>
+    <a
+			href={url}></a>
+			<button
+				class="buttonShadow lg:mr-auto lg:ml-0 text-base sm:text-lg md:text-xl poppins relative overflow-hidden px-6 py-3 group rounded-full bg-black text-white dark:bg-white dark:text-slate-950">
+				<div
+					class="absolute top-0 right-full w-full h-full bg-primary opacity-20 group-hover:translate-x-full z-0 duration-200" />
+				<h2 class="relative z-9 flex flex-row items-center">
+					Read more...
+					<span class="hidden md:inline-block">
+						<Icon
+							class="ml-1 text-white dark:text-slate-600"
+							name="eye" />
+					</span>
+				</h2>
+			</button>
+		</a>
+</div>
+</div>
