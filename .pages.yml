@@ -1,0 +1,81 @@
+media:
+  input: media
+  output: /media
+
+content:
+  - name: portfolio
+    label: Portfolio
+    type: collection
+    path: src/content/portfolio
+    format: yaml
+    filename: "{primary}.yaml"
+    view:
+      fields:
+        - title
+        - category
+        - date
+        - published
+      primary: title
+      sort:
+        field: date
+        direction: desc
+    fields:
+      - name: title
+        label: Titel
+        type: string
+        required: true
+
+      - name: slug
+        label: Slug
+        type: string
+        required: true
+
+      - name: category
+        label: Categorie
+        type: select
+        options:
+          - Fotografie
+          - Videografie
+          - Portret
+          - Events
+          - Automotive
+          - Landschap
+        required: true
+
+      - name: date
+        label: Datum
+        type: date
+
+      - name: cover
+        label: Coverfoto
+        type: image
+        required: true
+
+      - name: gallery
+        label: Foto's
+        type: image
+        list: true
+
+      - name: description
+        label: Beschrijving
+        type: rich-text
+
+      - name: published
+        label: Gepubliceerd
+        type: boolean
+        default: true
+
+  - name: pages
+    label: Pagina's
+    type: collection
+    path: src/content/pages
+    format: md
+    fields:
+      - name: title
+        label: Titel
+        type: string
+        required: true
+
+      - name: body
+        label: Inhoud
+        type: rich-text
